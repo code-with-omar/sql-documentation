@@ -21,7 +21,7 @@
 
 ## 2. SQL Basics
 
-- ### SQL Select
+- ### 2.1 SQL Select
   - #### The `SELECT` statement is used to select data from a database.
     ```sql
     SELECT column1, column2, ...
@@ -39,7 +39,7 @@
     SELECT *
     FROM players01
     ```
-- ### Select Distinct
+- ### 2.2 Select Distinct
   - #### The `SELECT DISTINCT` statement is used to return only distinct (different) values.
     ```sql
     ---Syntax
@@ -50,7 +50,7 @@
     FROM players01;
     ```
 
-### SQL WHERE
+### 2.3 WHERE SQL
 
 - #### The `WHERE` clause is used to filter records.
 
@@ -71,9 +71,9 @@
   WHERE first_name='Ahmed'
   ```
 
-### Logical Operators
+### 2.4 Logical Operators
 
-- #### `And Operators`
+- #### 2.4.1 `And Operators`
 
   - ##### Combines two or more conditions and returns results only if all conditions are `true.`
 
@@ -96,7 +96,7 @@
   - ##### 1. Retrieves player_id,first_name,team players01 who are shirt_number equal to 1 and rating equal 90 .
   - ##### 2. Retrieves player_id,first_name,team players01 who are shirt_number gather than 2 and rating is less than 90 .
 
-- #### `OR` Opearator
+- #### 2.4.2 `OR` Opearator
 
   - ##### Combines two or more conditions and returns results if at least one condition is true.
 
@@ -113,7 +113,7 @@
     WHERE shirt_number =1 OR rating = 90;
     ```
 
-- #### `NOT Operator`
+- #### 2.4.3`NOT Operator`
 
   - ##### The NOT operator is used in combination with other operators to give the opposite result, also called the negative result.
 
@@ -129,7 +129,7 @@
     WHERE NOT rating = 90;
     ```
 
-### Aliases
+### 2.5 Aliases
 
 - #### SQL aliases are used to give a table, or a column in a table, a temporary name.
 - #### Aliases are often used to make column names more readable.
@@ -156,7 +156,7 @@
   from players01;
   ```
 
-### `Limitation - LIMIT` SQL
+### 2.6 `Limitation - LIMIT` SQL
 
 - #### In SQL, the `LIMIT` clause is used to restrict the number of rows returned by a query. It is particularly useful when working with large datasets and when only a subset of the data is needed.
 
@@ -174,4 +174,52 @@
   SELECT *
   FROM players01
   LIMIT 2;
+  ```
+
+### 2.7 `INSERT INTO` SQL
+
+- #### The `INSERT INTO` statement is used to insert `new records` in a table.
+- #### 2.7.1 It is possible to write the INSERT INTO statement in two ways:
+
+  ##### 2.7.1.1 Specify both the column names and the values to be inserted
+
+  ```sql
+  --- Syntax
+  INSERT INTO table_name (column1, column2, column3, ...)
+  VALUES (value1, value2, value3, ...);
+  --- Example
+  INSERT into players01 (player_id,first_name,last_name,teamshirt_number,rating)
+  VALUES (10,'Md. Omar', 'Faruk', 'Tiger Team', 4, 95)'
+
+  ```
+
+  ##### 2.7.1.2 If you are adding values for all the columns of the table, you do not need to specify the column names in the SQL query. However, make sure the order of the values is in the same order as the columns in the table. Here, the INSERT INTO syntax would be as follows
+
+  ```sql
+  INSERT INTO table_name
+  VALUES (value1, value2, value3, ...);
+
+  --- Example
+  INSERT INTO players01
+  VALUES (11, 'Hossain', 'Ahmed', 'Tiger Team', 4, 85);
+
+  ```
+
+  #### 2.7.2 `Insert` Data Only in Specified Columns
+
+  - ##### It is also possible to only insert data in specific columns. Below examples Due column has NULL value store
+    ```sql
+    --- Example
+    INSERT into players01 (player_id,first_name,rating)
+    VALUES (12,'Md. Omar',  95)';
+    ```
+
+  #### 2.7.3 `Insert` Multiple Rows
+  - ##### It is also possible to insert multiple rows in one statement.
+
+  ```sql
+  INSERT into players01 (player_id,first_name,last_name,team,shirt_number,rating)
+  VALUES
+  (13,'Sajib', 'Das', 'Fox team','1',85),
+  (14,'Fazlul', 'Haque', 'Fox team','1',95)
   ```
