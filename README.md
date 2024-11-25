@@ -21,7 +21,7 @@
 
 ## 2. SQL Basics
 - #### SQL Select
-   - ##### The SELECT statement is used to select data from a database. 
+   - ##### The `SELECT` statement is used to select data from a database. 
         ```sql
         SELECT column1, column2, ...
         FROM table_name;
@@ -31,10 +31,22 @@
         ```
     - ##### Select ALL columns
         ```sql
-        -- Syntex
+        -- Syntax
         SELECT * 
         FROM table_name;
         -- Exmaple 
         SELECT *
         FROM players01
         ```
+- #### Select Distinct
+    - ##### The `SELECT DISTINCT` statement is used to return only distinct (different) values.
+        ```sql
+        ---Syntax
+        SELECT DISTINCT column1, column2, ...
+        FROM table_name;
+        --- Example
+        SELECT DISTINCT player_id 
+        FROM players01;
+        ```
+
+
