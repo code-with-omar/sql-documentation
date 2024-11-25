@@ -128,3 +128,27 @@
     FROM players01
     WHERE NOT rating = 90;
     ```
+## Aliases
+- ### SQL aliases are used to give a table, or a column in a table, a temporary name.
+- ### Aliases are often used to make column names more readable.
+- ### An alias only exists for the duration of that query.
+- ### An alias is created with the AS keyword.
+    ```sql
+    --- Syntax
+    --When alias is used on column:
+
+    SELECT column_name AS alias_name
+    FROM table_name;
+
+    -- When alias is used on table:
+
+    SELECT column_name(s)
+    FROM table_name AS alias_name;
+
+    --- Examples
+    SELECT player_id as p_id ,first_name as sure_name, rating As new_rating
+    FROM players01;
+
+    SELECT first_name || ' ' || last_name As full_name
+    from players01;
+    ```
