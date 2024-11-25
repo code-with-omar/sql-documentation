@@ -20,3 +20,21 @@
 
 
 ## 2. SQL Basics
+- #### SQL Select
+   - ##### The SELECT statement is used to select data from a database. 
+        ```sql
+        SELECT column1, column2, ...
+        FROM table_name;
+        -- Expample
+        SELECT player_id, first_name, last_name
+        FROM players01;
+        ```
+    - ##### Select ALL columns
+        ```sql
+        -- Syntex
+        SELECT * 
+        FROM table_name;
+        -- Exmaple 
+        SELECT *
+        FROM players01
+        ```
