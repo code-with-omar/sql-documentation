@@ -215,6 +215,7 @@
     ```
 
   #### 2.7.3 `Insert` Multiple Rows
+
   - ##### It is also possible to insert multiple rows in one statement.
 
   ```sql
@@ -222,4 +223,20 @@
   VALUES
   (13,'Sajib', 'Das', 'Fox team','1',85),
   (14,'Fazlul', 'Haque', 'Fox team','1',95)
+  ```
+
+### 2.8 `UPDATE` SQL
+
+- #### Used to modify existing records in a table.
+
+  ```sql
+  --- Syntax
+  UPDATE table_name
+  SET column1 = value1, column2 = value2, ...
+  WHERE condition;
+
+  --- Example
+  UPDATE players01
+  set first_name = 'Update', last_name = 'Name'
+  WHERE player_id = 15
   ```
