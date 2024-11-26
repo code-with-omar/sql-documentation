@@ -479,7 +479,7 @@
   ```sql
   CREATE DATABASE databasename;
   ```
-- #### 4.2 Table Create
+- ### 4.2 Table Create
 
   - #### The `CREATE TABLE` statement is used to create a new table in a database.
 
@@ -503,3 +503,16 @@
   ('Banana', 'BA01'),
   ('Orange','OR01')
   ```
+
+- ### 4.3 Table create from another table
+  - #### Here `tiger_team_players` is create from `players01` table
+  
+    ```sql
+    CREATE TABLE tiger_team_players
+    as(
+    SELECT *
+    FROM players01
+    WHERE team='Tiger Team'
+    )
+    ```
+
