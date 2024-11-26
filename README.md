@@ -470,3 +470,36 @@
     CREATE INDEX index_name
     ON table_name (column1, column2, ...);
     ```
+
+## 4. Create DataBase & Table
+
+- ### 4.1 DataBase Create
+  - #### The `CREATE DATABASE` statement is used to create a new SQL database.
+  - #### Syntax
+  ```sql
+  CREATE DATABASE databasename;
+  ```
+- #### 4.2 Table Create
+
+  - #### The `CREATE TABLE` statement is used to create a new table in a database.
+
+  ```sql
+  ---Syntax
+  CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....);
+  --- Example
+  CREATE TABLE fruits01(
+  fruit_id SERIAL PRIMARY KEY,
+  fruit_name VARCHAR (50) NOT NULL,
+  fruit_code VARCHAR (10) NOT NULL
+  );
+  --- insert value
+  INSERT INTO fruits01(fruit_name,fruit_code)
+  VALUES
+  ('Apple','AP01'),
+  ('Banana', 'BA01'),
+  ('Orange','OR01')
+  ```
