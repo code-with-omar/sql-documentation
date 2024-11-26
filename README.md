@@ -357,3 +357,43 @@
     FROM players01
     WHERE rating in (80, 90)
     ```
+
+## 3. SQL Constraints & Data Types
+
+- ### SQL data types define the kind of values that can be stored in a table's columns. They ensure that data is stored consistently and enable efficient operations. Here’s an organized list of SQL data types by category:
+- ### 3.1 Numeric Data Types
+
+  - `INT / INTEGER` - Stores whole numbers. Common range: -2,147,483,648 to 2,147,483,647.
+  - `SMALLINT` - Smaller range of integers. Common range: -32,768 to 32,767.
+  - `BIGINT` - Larger range of integers. Common range: -2^63 to 2^63 - 1.
+  - `DECIMAL(p, s) / NUMERIC(p, s)` - Fixed-point numbers with precision p and scale s.
+  - `FLOAT` - Approximate floating-point numbers. Stores large range but with rounding errors.
+  - `REAL` - Single-precision floating-point numbers.
+
+  - `DOUBLE / DOUBLE PRECISION` - Double-precision floating-point numbers.
+  - `TINYINT` - Small integers. Common range: 0 to 255 (unsigned).
+
+- ### 3.2 Character/String Data Types
+
+  - `CHAR(n) / CHARACTER(n)` - Fixed-length string of size n Padded with spaces if shorter.
+
+  - `VARCHAR(n)` - Variable-length string of up to n characters.
+
+  - `TEXT` - Large variable-length string. Typically unlimited or database-specific limit.
+
+- ### 3.3 Date and Time Data Types
+  - `DATE` - Stores date in YYYY-MM-DD format.
+  - `TIME` - Stores time in HH:MI:SS format.
+  - `DATETIME` - Stores date and time.
+  - `TIMESTAMP` - Stores date and time, often with time zone information.
+  - `YEAR` - Stores year in two or four digits.
+  - `INTERVAL` - Used for intervals of time (SQL Standard, not always supported).
+- ### Example
+  ```sql
+  CREATE TABLE Customers(
+  customers_id INT,
+  customers_firstName VARCHAR(50),
+  Order_date DATE,
+  customer_notes TEXT
+  );
+  ```
