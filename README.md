@@ -360,40 +360,113 @@
 
 ## 3. SQL Constraints & Data Types
 
-- ### SQL data types define the kind of values that can be stored in a table's columns. They ensure that data is stored consistently and enable efficient operations. Here’s an organized list of SQL data types by category:
-- ### 3.1 Numeric Data Types
+- ### 3.1 Data Type :
 
-  - `INT / INTEGER` - Stores whole numbers. Common range: -2,147,483,648 to 2,147,483,647.
-  - `SMALLINT` - Smaller range of integers. Common range: -32,768 to 32,767.
-  - `BIGINT` - Larger range of integers. Common range: -2^63 to 2^63 - 1.
-  - `DECIMAL(p, s) / NUMERIC(p, s)` - Fixed-point numbers with precision p and scale s.
-  - `FLOAT` - Approximate floating-point numbers. Stores large range but with rounding errors.
-  - `REAL` - Single-precision floating-point numbers.
+  - `SQL data types define the kind of values that can be stored in a table's columns. They ensure that data is stored consistently and enable efficient operations. Here’s an organized list of SQL data types by category`
+  - #### 3.1.1 Numeric Data Types
 
-  - `DOUBLE / DOUBLE PRECISION` - Double-precision floating-point numbers.
-  - `TINYINT` - Small integers. Common range: 0 to 255 (unsigned).
+    - `INT / INTEGER` - Stores whole numbers. Common range: -2,147,483,648 to 2,147,483,647.
+    - `SMALLINT` - Smaller range of integers. Common range: -32,768 to 32,767.
+    - `BIGINT` - Larger range of integers. Common range: -2^63 to 2^63 - 1.
+    - `DECIMAL(p, s) / NUMERIC(p, s)` - Fixed-point numbers with precision p and scale s.
+    - `FLOAT` - Approximate floating-point numbers. Stores large range but with rounding errors.
+    - `REAL` - Single-precision floating-point numbers.
 
-- ### 3.2 Character/String Data Types
+    - `DOUBLE / DOUBLE PRECISION` - Double-precision floating-point numbers.
+    - `TINYINT` - Small integers. Common range: 0 to 255 (unsigned).
 
-  - `CHAR(n) / CHARACTER(n)` - Fixed-length string of size n Padded with spaces if shorter.
+  - #### 3.1.2 Character/String Data Types
 
-  - `VARCHAR(n)` - Variable-length string of up to n characters.
+    - `CHAR(n) / CHARACTER(n)` - Fixed-length string of size n Padded with spaces if shorter.
 
-  - `TEXT` - Large variable-length string. Typically unlimited or database-specific limit.
+    - `VARCHAR(n)` - Variable-length string of up to n characters.
 
-- ### 3.3 Date and Time Data Types
-  - `DATE` - Stores date in YYYY-MM-DD format.
-  - `TIME` - Stores time in HH:MI:SS format.
-  - `DATETIME` - Stores date and time.
-  - `TIMESTAMP` - Stores date and time, often with time zone information.
-  - `YEAR` - Stores year in two or four digits.
-  - `INTERVAL` - Used for intervals of time (SQL Standard, not always supported).
-- ### Example
-  ```sql
-  CREATE TABLE Customers(
-  customers_id INT,
-  customers_firstName VARCHAR(50),
-  Order_date DATE,
-  customer_notes TEXT
-  );
-  ```
+    - `TEXT` - Large variable-length string. Typically unlimited or database-specific limit.
+
+  - #### 3.1.3 Date and Time Data Types
+    - `DATE` - Stores date in YYYY-MM-DD format.
+    - `TIME` - Stores time in HH:MI:SS format.
+    - `DATETIME` - Stores date and time.
+    - `TIMESTAMP` - Stores date and time, often with time zone information.
+    - `YEAR` - Stores year in two or four digits.
+    - `INTERVAL` - Used for intervals of time (SQL Standard, not always supported).
+  - #### Example
+    ```sql
+    CREATE TABLE Customers(
+    customers_id INT,
+    customers_firstName VARCHAR(50),
+    Order_date DATE,
+    customer_notes TEXT
+    );
+    ```
+
+- ### 3.2 SQL Constraints
+
+  - `In SQL, constraints are rules enforced on table columns to maintain data integrity and ensure valid data entry. Constraints are specified when a table is created or altered and help prevent invalid operations on the database.`
+  - #### Types of SQL Constraints
+
+    #### 1. `NOT NULL` - Ensures that a column cannot have NULL values. Every row must have a value for this column.
+
+    ```sql
+    CREATE TABLE employees (
+    id INT NOT NULL,
+    name VARCHAR(50) NOT NULL);
+    ```
+
+    #### 2.`UNIQUE` - Ensures that all values in a column are different
+
+    ```sql
+    ---Example
+    CREATE TABLE users (
+    user_id INT UNIQUE,
+    email VARCHAR(100) UNIQUE);
+    ```
+
+    #### 3.`PRIMARY KEY` - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+
+    ```sql
+    ---Example
+    CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    order_date DATE NOT NULL);
+
+    ```
+
+    #### 4.`FOREIGN KEY` - Prevents actions that would destroy links between tables
+
+    ```sql
+    ---Example
+    CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id));
+
+    ```
+
+    #### 5.`CHECK` - Ensures that the values in a column satisfies a specific condition
+
+    ```sql
+    --- Example
+    CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    price DECIMAL(10, 2),
+    CHECK (price > 0));
+
+    ```
+
+    #### 6.`DEFAULT` - Sets a default value for a column if no value is specified
+
+    ```sql
+    --- Example
+    CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    status VARCHAR(20) DEFAULT 'active');
+
+    ```
+
+    #### 7.`CREATE INDEX` - Used to create and retrieve data from the database very quickly
+
+    ```sql
+    CREATE INDEX index_name
+    ON table_name (column1, column2, ...);
+    ```
