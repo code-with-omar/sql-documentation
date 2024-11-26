@@ -243,7 +243,7 @@
 
 ### 2.9 `DELETE` SQL
 
-- #### The DELETE statement in SQL is used to remove rows from a table based on specified conditions. Here's a detailed guide on how to use it effectively and safely:
+- #### The `DELETE` statement in SQL is used to remove rows from a table based on specified conditions. Here's a detailed guide on how to use it effectively and safely:
 
   ```sql
   ---Syntax
@@ -259,3 +259,35 @@
   DELETE FROM players01;
 
   ```
+
+### 2.10 SQL Opearators
+
+- #### 2.10.1 SQL Arithmetic Operators
+  - #### `+` Addition - `SELECT 30 + 20`
+  - #### `-` Subtraction - `SELECT 30 - 20`
+  - #### `*` Multiplication - `SELECT 2 * 5`
+  - #### `/` Division - `SELECT 10 / 2`
+  - #### `%` Modulus - `SELECT 30 + 10`
+- #### 2.10.2 SQL Bitwise Operators
+  - #### `&` Bitwise AND - `SELECT 5 & 3 AS Result` Output = 1
+    - ##### Binary Representation:
+    - 5 = 0101
+    - 3 = 0011
+    - Result = 0001 = 1
+  - #### `|` Bitwise OR - `SELECT 5 | 3 AS Result` Output = 7
+    - #### Binary Representation:
+    - 5 = 0101
+    - 3 = 0011
+    - Result = 0111 = 7
+  - #### `^` Bitwise exclusive OR - `SELECT 5 ^ 3 AS Result` Output = 6
+    - #### Binary Representation:
+    - 5 = 0101
+    - 3 = 0011
+    - Result = 0110 = 6
+- #### 2.10.3 SQL Comparison Operators
+  - `=` Equal to - `SELECT * FROM players01 WHERE rating = 80`
+  - `>` Greater than - `SELECT * FROM players01 WHERE rating > 80`
+  - `<` Less than - `SELECT * FROM players01 WHERE rating > 80`
+  - `>=` Greater than or equal to - `SELECT * FROM players01 WHERE rating >=80;`
+  - `<=` Less than or equal to - `SELECT * FROM players01 WHERE rating <=80;`
+  - `<>` Not equal to - `SELECT * FROM players01 WHERE rating <>80;`
