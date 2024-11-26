@@ -40,6 +40,7 @@
     FROM players01
     ```
 - ### 2.2 Select Distinct
+
   - #### The `SELECT DISTINCT` statement is used to return only distinct (different) values.
     ```sql
     ---Syntax
@@ -127,6 +128,10 @@
       SELECT player_id,first_name,team,rating
       FROM players01
       WHERE NOT rating = 90;
+      ```
+
+    ```
+
     ```
 
 - ### 2.5 Aliases
@@ -181,29 +186,29 @@
   - #### The `INSERT INTO` statement is used to insert `new records` in a table.
   - #### 2.7.1 It is possible to write the INSERT INTO statement in two ways:
 
-   - ##### 2.7.1.1 Specify both the column names and the values to be inserted
+  - ##### 2.7.1.1 Specify both the column names and the values to be inserted
 
-      ```sql
-      --- Syntax
-      INSERT INTO table_name (column1, column2, column3, ...)
-      VALUES (value1, value2, value3, ...);
-      --- Example
-      INSERT into players01 (player_id,first_name,last_name,teamshirt_number,rating)
-      VALUES (10,'Md. Omar', 'Faruk', 'Tiger Team', 4, 95)'
+    ```sql
+    --- Syntax
+    INSERT INTO table_name (column1, column2, column3, ...)
+    VALUES (value1, value2, value3, ...);
+    --- Example
+    INSERT into players01 (player_id,first_name,last_name,teamshirt_number,rating)
+    VALUES (10,'Md. Omar', 'Faruk', 'Tiger Team', 4, 95)'
 
-      ```
+    ```
 
   - ##### 2.7.1.2 If you are adding values for all the columns of the table, you do not need to specify the column names in the SQL query. However, make sure the order of the values is in the same order as the columns in the table. Here, the INSERT INTO syntax would be as follows
 
-      ```sql
-      INSERT INTO table_name
-      VALUES (value1, value2, value3, ...);
+    ```sql
+    INSERT INTO table_name
+    VALUES (value1, value2, value3, ...);
 
-      --- Example
-      INSERT INTO players01
-      VALUES (11, 'Hossain', 'Ahmed', 'Tiger Team', 4, 85);
+    --- Example
+    INSERT INTO players01
+    VALUES (11, 'Hossain', 'Ahmed', 'Tiger Team', 4, 85);
 
-      ```
+    ```
 
   - #### 2.7.2 `Insert` Data Only in Specified Columns
 
@@ -301,13 +306,54 @@
     - `^-=` Bitwise exclusive equals
     - `|*=` Bitwise OR equals
   - #### 2.10.5 SQL Logical Operators
-    - `ALL`	TRUE if all of the subquery values meet the condition	
-    - `AND`	TRUE if all the conditions separated by AND is TRUE	
-    - `ANY`	TRUE if any of the subquery values meet the condition	
-    - `BETWEEN`	TRUE if the operand is within the range of comparisons	
-    - `EXISTS`	TRUE if the subquery returns one or more records	
-    - `IN`	TRUE if the operand is equal to one of a list of expressions	
-    - `LIKE`	TRUE if the operand matches a pattern	
-    - `NOT`	Displays a record if the condition(s) is NOT TRUE	
-    - `OR`	TRUE if any of the conditions separated by OR is TRUE	
-    - `SOME`	TRUE if any of the subquery values meet the condition
+    - `ALL` TRUE if all of the subquery values meet the condition
+    - `AND` TRUE if all the conditions separated by AND is TRUE
+    - `ANY` TRUE if any of the subquery values meet the condition
+    - `BETWEEN` TRUE if the operand is within the range of comparisons
+    - `EXISTS` TRUE if the subquery returns one or more records
+    - `IN` TRUE if the operand is equal to one of a list of expressions
+    - `LIKE` TRUE if the operand matches a pattern
+    - `NOT` Displays a record if the condition(s) is NOT TRUE
+    - `OR` TRUE if any of the conditions separated by OR is TRUE
+    - `SOME` TRUE if any of the subquery values meet the condition
+
+- ### 2.10 `BETWEEN`
+
+  - #### The `BETWEEN` operator selects values within a given range. The values can be numbers, text, or dates.
+  - #### The `BETWEEN` operator is inclusive: begin and end values are included.
+
+    ```sql
+    --- Syntax
+    SELECT column_name(s)
+    ROM table_name
+    WHERE column_name BETWEEN value1 AND value2;
+    --- Examples
+    SELECT *
+    FROM players01
+    WHERE player_id BETWEEN 5 AND 8;
+
+    SELECT rating
+    FROM players01
+    WHERE player_id BETWEEN 5 AND 8
+    ```
+
+- ### 2.11 `IN` Operator
+
+  - #### The `IN` operator is used to filter rows where a column's value matches one of several specified values.
+  - #### Syntax
+    ```sql
+    SELECT column_name
+    FROM table_name
+    WHERE column_name IN (value1, value2, ...);
+    ```
+  - #### Example
+
+    ```sql
+    SELECT *
+    FROM players01
+    WHERE rating in (80, 90)
+
+    SELECT first_name
+    FROM players01
+    WHERE rating in (80, 90)
+    ```
