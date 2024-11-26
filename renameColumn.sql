@@ -1,0 +1,2 @@
+ALTER TABLE tiger_team_players 
+RENAME COLUMN player_location TO p_locationtiger_team_players

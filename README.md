@@ -483,30 +483,31 @@
 
   - #### The `CREATE TABLE` statement is used to create a new table in a database.
 
-  ```sql
-  ---Syntax
-  CREATE TABLE table_name (
+    ```sql
+    ---Syntax
+    CREATE TABLE table_name (
     column1 datatype,
     column2 datatype,
     column3 datatype,
-   ....);
-  --- Example
-  CREATE TABLE fruits01(
-  fruit_id SERIAL PRIMARY KEY,
-  fruit_name VARCHAR (50) NOT NULL,
-  fruit_code VARCHAR (10) NOT NULL
-  );
-  --- insert value
-  INSERT INTO fruits01(fruit_name,fruit_code)
-  VALUES
-  ('Apple','AP01'),
-  ('Banana', 'BA01'),
-  ('Orange','OR01')
-  ```
+    ....);
+    --- Example
+    CREATE TABLE fruits01(
+    fruit_id SERIAL PRIMARY KEY,
+    fruit_name VARCHAR (50) NOT NULL,
+    fruit_code VARCHAR (10) NOT NULL
+    );
+    --- insert value
+    INSERT INTO fruits01(fruit_name,fruit_code)
+    VALUES
+    ('Apple','AP01'),
+    ('Banana', 'BA01'),
+    ('Orange','OR01')
+    ```
 
 - ### 4.3 Table create from another table
+
   - #### Here `tiger_team_players` is create from `players01` table
-  
+
     ```sql
     CREATE TABLE tiger_team_players
     as(
@@ -516,3 +517,64 @@
     )
     ```
 
+- ### 4.4 Delete Database
+
+  - #### The `DROP DATABASE` statement is used to drop an existing SQL database.
+  - Syntax
+
+    ```sql
+    DROP DATABASE databasename;
+
+    ```
+
+- ### 4.5 Delete Table
+  - #### In SQL, the `DROP TABLE` statement is used to delete an entire table from a database, including all its data, structure, and associated constraints. Once dropped, the table cannot be recovered unless you have a backup.
+    ```sql
+    ---Syntax
+    DROP TABLE table_name;
+    ```
+- ### 4.6 Alter
+
+  - #### The `ALTER` statement in SQL is used to modify the structure of an existing database object, such as a table. You can add, modify, or drop columns, constraints, and other table attributes. It is a powerful command that helps you adjust your schema without losing data.
+  - #### 4.6.1. `Add a New Column:` We can add a new column to an existing table using `ADD`.
+
+    ```sql
+    ---Syntax
+    ALTER TABLE table_name
+    ADD column_name column_definition;
+
+    ---Example
+    ALTER TABLE tiger_team_players
+    ADD player_location VARCHAR(50);
+    ```
+
+  - #### 4.6.2 `Rename column:` We can rename a column using `RENAME COLUMN`
+
+    ```sql
+    --- syntax
+    ALTER TABLE table_name
+    RENAME COLUMN old_column_name TO new_column_name;
+
+    --- example
+    ALTER TABLE tiger_team_players
+    RENAME COLUMN player_location to p_locationtiger_team_players
+    ```
+
+  - #### 4.6.3 `Delete column:` We can remove an unwanted column from a table using DROP COLUMN.
+    ```sql
+    --- syntax
+    ALTER TABLE table_name
+    DROP COLUMN column_name;
+    --- example
+    Alter TABLE tiger_team_players
+    Drop column last_name
+    ```
+  - #### `Rename a Table: ` WE can rename the entire table using `RENAME`.
+    ```sql
+    ALTER TABLE old_table_name
+    RENAME TO new_table_name;
+
+    --- Example 
+    ALTER TABLE demo
+    RENAME to finalDemo
+    ```

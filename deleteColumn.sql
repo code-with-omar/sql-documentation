@@ -1,0 +1,2 @@
+Alter TABLE tiger_team_players
+Drop column last_name
