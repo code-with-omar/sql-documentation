@@ -240,3 +240,22 @@
   set first_name = 'Update', last_name = 'Name'
   WHERE player_id = 15
   ```
+
+### 2.9 `DELETE` SQL
+
+- #### The DELETE statement in SQL is used to remove rows from a table based on specified conditions. Here's a detailed guide on how to use it effectively and safely:
+
+  ```sql
+  ---Syntax
+  DELETE FROM table_name
+  WHERE condition;
+  --- Examples
+
+  --- 1. Delete Specific Rows
+  DELETE FROM players01
+  WHERE player_id=12;
+
+  --- 2. Delete All Rows from a Table
+  DELETE FROM players01;
+
+  ```
