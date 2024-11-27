@@ -586,14 +586,48 @@
 
   - #### The ORDER BY keyword is used to sort the result-set in ascending or descending order. By default, it sorts the data in ascending order, but you can specify descending order as well.
 
-  ```sql
-  --- Syntax
-  SELECT column1, column2, ...
-  FROM table_name
-  ORDER BY column1, column2, ... ASC|DESC;
+    ```sql
+    --- Syntax
+    SELECT column1, column2, ...
+    FROM table_name
+    ORDER BY column1, column2, ... ASC|DESC;
 
-  --- Example
-  SELECT *
-  FROM players01
-  ORDER By first_name DESC, rating 
-  ```
+    --- Example
+    SELECT *
+    FROM players01
+    ORDER By first_name DESC, rating
+    ```
+
+- ### 5.2 `UNION/ UNION ALL`
+  - #### Key Rules for `UNION`
+  - #### Number of Columns: `Both SELECT queries must have the same number of columns.`
+  - #### Data Types: `The data types of corresponding columns in the queries must be compatible`.
+  - #### Order of Rows: `The final result set is not guaranteed to be ordered unless you use an ORDER BY clause.`
+  - #### Eliminates Duplicates: `By default` `UNION` removes duplicate rows. To include duplicates, use `UNION ALL`
+    ```sql
+    --- syntax
+    --- 1.Eliminates Duplicates
+    SELECT column1, column2, ...
+    FROM table1
+    UNION
+    SELECT column1, column2, ...
+    FROM table2;
+    --- 2.To include duplicates
+    SELECT column1, column2, ...
+    FROM table1
+    UNION
+    SELECT column1, column2, ...
+    FROM table2;
+    ---1. Examples
+    SELECT employees_id as union_employee
+    FROM employees01
+    UNION
+    SELECT player_id
+    FROM players01
+    ---2. Examples
+    SELECT employees_id as union_employee
+    FROM employees01
+    UNION All
+    SELECT player_id
+    FROM players01
+    ```
