@@ -569,12 +569,31 @@
     Alter TABLE tiger_team_players
     Drop column last_name
     ```
-  - #### `Rename a Table: ` WE can rename the entire table using `RENAME`.
+  - #### 4.6.4 `Rename a Table:` WE can rename the entire table using `RENAME`.
+
     ```sql
     ALTER TABLE old_table_name
     RENAME TO new_table_name;
 
-    --- Example 
+    --- Example
     ALTER TABLE demo
     RENAME to finalDemo
     ```
+
+## 5. Data Sorting & Condition
+
+- ### 5.1 `ORDER BY`
+
+  - #### The ORDER BY keyword is used to sort the result-set in ascending or descending order. By default, it sorts the data in ascending order, but you can specify descending order as well.
+
+  ```sql
+  --- Syntax
+  SELECT column1, column2, ...
+  FROM table_name
+  ORDER BY column1, column2, ... ASC|DESC;
+
+  --- Example
+  SELECT *
+  FROM players01
+  ORDER By first_name DESC, rating 
+  ```
