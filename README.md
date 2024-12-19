@@ -631,3 +631,23 @@
     SELECT player_id
     FROM players01
     ```
+- ### 5.3 GROUP BY
+
+  - #### The `GROUP BY` clause in SQL is used to group rows that have the same values in specified columns into summary rows. It is typically used with aggregate functions (like `COUNT()`, `SUM()`, `MIN()`, `MAX()`, `AVG()`) to perform calculations on each group.
+
+  ```sql
+  ---Syntax
+  SELECT column1, aggregate_function(column2) AS alias_name
+  FROM table_name
+  GROUP BY column1;
+
+  --- examples
+  ---example 1
+  SELECT team, AVG(rating) AS min_rating
+  FROM players01
+  GROUP BY team
+  ---example 2
+  SELECT team, COUNT(*) AS T_number
+  FROM players01
+  GROUP BY team;
+  ```
