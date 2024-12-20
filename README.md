@@ -680,3 +680,27 @@
   GROUP BY team
   HAVING COUNT (player_id) > 1
   ```
+
+- ### 5.5 Wildcard
+
+  - #### `Wildcard` characters are used with the `LIKE `operator. The `LIKE` operator is used in a `WHERE` clause to search for a specified pattern in a column.
+    - ##### `%` Represents zero or more characters
+    - ##### `_` Represents a single character
+    - ##### `[]` Represents any single character within the brackets \*
+    - ##### `^` Represents any character not in the brackets \*
+    - ##### `-` Represents any single character within the specified range \*
+    - ##### `}` Represents any escaped character \*\*
+
+  ```sql
+  SELECT * FROM Customers
+  WHERE CustomerName LIKE 'a%';
+
+  SELECT * FROM Customers
+  WHERE CustomerName LIKE '%mer%';
+
+  SELECT * FROM Customers
+  WHERE City LIKE '_ondon';
+
+  SELECT * FROM Customers
+  WHERE CustomerName LIKE '[bsp]%';
+  ```
