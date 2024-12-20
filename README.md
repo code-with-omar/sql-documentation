@@ -731,3 +731,47 @@
         END AS rating_notes
       FROM players01;
       ```
+
+## 6. Function Programing in SQL
+
+- ### 6.1 `Aggregate Function`
+
+  - #### Aggregate Function is a function that performs a calculation on a set of values, and `returns a single value`
+  - #### Aggregate functions are often used with the `GROUP BY` clause of the `SELECT statement`. The `GROUP BY` clause splits the result-set into groups of values and the aggregate function can be used to return a single value for each group.
+  - #### The most commonly used SQL aggregate functions are:
+
+    - #### 6.1.1 `MIN()` - returns the smallest value within the selected column
+
+      ```sql
+      --syntax
+      SELECT MIN(column_name)
+      FROM table_name
+      WHERE condition;
+      ```
+
+    - #### 6.1.2 `MAX()` - returns the largest value within the selected column
+      ```sql
+      SELECT MAX(column_name)
+      FROM table_name
+      WHERE condition;
+      ```
+    - #### 6.1.3 `COUNT()` - returns the number of rows in a set
+
+      ```sql
+      SELECT COUNT(column_name)
+      FROM table_name
+      WHERE condition;
+      ```
+
+    - #### 6.1.4 `SUM()` - returns the total sum of a numerical column
+      ```sql
+      SELECT SUM(column_name)
+      FROM table_name
+      WHERE condition;
+      ```
+    - #### 6.1.5 `AVG()` - returns the average value of a numerical column
+      ```sql
+      SELECT AVG(column_name)
+      FROM table_name
+      WHERE condition;
+      ```
