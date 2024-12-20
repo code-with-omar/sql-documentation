@@ -651,3 +651,32 @@
   FROM players01
   GROUP BY team;
   ```
+
+- ### 5.4 Having
+
+  - #### The `HAVING` clause in SQL is used to filter groups created by the `GROUP BY` clause. It works like a `WHERE` clause but is applied to aggregated results (e.g., counts, averages).
+  - #### Difference from `WHERE`:
+    - ##### `WHERE` filters rows before grouping.
+    - ##### `HAVING` filters groups after grouping.
+
+  ```sql
+  SELECT column_name(s)
+  FROM table_name
+  WHERE condition
+  GROUP BY column_name(s)
+  HAVING condition
+
+  --Examples
+  --1. Example
+  SELECT player_id, rating
+  FROM players01
+  GROUP by player_id,rating
+  HAVING rating > 90
+  ORDER BY player_id DESC
+
+  --2. Example
+  SELECT COUNT (player_id) ,team
+  FROM players01
+  GROUP BY team
+  HAVING COUNT (player_id) > 1
+  ```
