@@ -631,7 +631,7 @@
     SELECT player_id
     FROM players01
     ```
-- ### 5.3 GROUP BY
+- ### 5.3 `GROUP BY`
 
   - #### The `GROUP BY` clause in SQL is used to group rows that have the same values in specified columns into summary rows. It is typically used with aggregate functions (like `COUNT()`, `SUM()`, `MIN()`, `MAX()`, `AVG()`) to perform calculations on each group.
 
@@ -652,7 +652,7 @@
   GROUP BY team;
   ```
 
-- ### 5.4 Having
+- ### 5.4 `Having`
 
   - #### The `HAVING` clause in SQL is used to filter groups created by the `GROUP BY` clause. It works like a `WHERE` clause but is applied to aggregated results (e.g., counts, averages).
   - #### Difference from `WHERE`:
@@ -681,7 +681,7 @@
   HAVING COUNT (player_id) > 1
   ```
 
-- ### 5.5 Wildcard
+- ### 5.5 `Wildcard`
 
   - #### `Wildcard` characters are used with the `LIKE `operator. The `LIKE` operator is used in a `WHERE` clause to search for a specified pattern in a column.
     - ##### `%` Represents zero or more characters
@@ -704,3 +704,30 @@
   SELECT * FROM Customers
   WHERE CustomerName LIKE '[bsp]%';
   ```
+
+- ### 5.6 `CASE`
+  - #### In SQL, `CASE` is a conditional expression that works like an `if-then-else` statement. It is often used in `SELECT`, `UPDATE`, or `ORDER BY` clauses to evaluate conditions and `return` specific results based on those conditions.
+        ```sql
+        --syntax
+        CASE
+          WHEN condition1 THEN result1
+          WHEN condition2 THEN result2
+          WHEN conditionN THEN resultN
+        ELSE result
+        END;
+        ```
+  - #### Here explain the `CASE` syntax
+    - ##### `WHEN` specifies the condition to evaluate.
+    - ##### `THEN` specifies the result `if the condition is true`.
+    - ##### `ELSE` provides a default value `if none of the conditions are true (optional)`
+    - ##### `END` marks the end of the `CASE` statement.
+      ```sql
+      --example
+      SELECT player_id,rating,
+        CASE
+          WHEN rating > 90 THEN 'Excellent rating'
+          WHEN rating = 90 THEN 'Very Good'
+          ELSE 'Good Rating'
+        END AS rating_notes
+      FROM players01;
+      ```
