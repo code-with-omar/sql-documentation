@@ -775,3 +775,11 @@
       FROM table_name
       WHERE condition;
       ```
+
+## 7. SQL Joins
+
+- ### SQL joins are a powerful tool for combining data from two or more tables based on related columns. There are several types of joins, each serving different purposes:
+- ### 7.1 `Inner Join`
+  - #### The `INNER JOIN` keyword selects records that have matching values in both tables.
+  - #### Rows without matching values in both tables are excluded.
+    ![Inner joins]('/inner-join.png')
