@@ -780,6 +780,34 @@
 
 - ### SQL joins are a powerful tool for combining data from two or more tables based on related columns. There are several types of joins, each serving different purposes:
 - ### 7.1 `Inner Join`
+
   - #### The `INNER JOIN` keyword selects records that have matching values in both tables.
   - #### Rows without matching values in both tables are excluded.
-    ![Inner joins]('/inner-join.png')
+
+    ![Inner joins](inner-join.png)
+
+    ```sql
+    --syntax
+    SELECT column_name(s)
+    FROM table1
+    INNER JOIN table2
+    ON table1.column_name = table2.column_name;
+
+    --Example
+    SELECT players01.player_id,players01.first_name as player_firstName,employees.first_name as employees_firstName
+    FROM players01
+    INNER JOIN employees
+    on players01.player_id=employees.employee_id
+    ```
+
+- ### 7.2 `Left Join`
+  - #### Returns all rows from the left table and the matched rows from the right table.
+  - #### If there is no match, NULL values are returned for columns from the right table.
+    ![Inner joins](left-join.png)
+  ```sql
+  --syntax
+  SELECT column_name(s)
+  FROM table1
+  LEFT JOIN table2
+  ON table1.column_name = table2.column_name;
+  ```
