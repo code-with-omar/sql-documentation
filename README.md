@@ -819,3 +819,39 @@
   left join employees
   on players01.player_id=employees.employee_id
   ```
+
+- ### 7.3 `Right Join`
+
+  - #### Returns all rows from the right table and the matched rows from the left table.
+  - #### If there is no match, NULL values are returned for columns from the left table
+    ![Inner joins](right-join.png)
+      ```sql
+        SELECT column_name(s)
+        FROM table1
+        RIGHT JOIN table2
+        ON table1.column_name = table2.column_name;
+
+        --example
+        SELECT players01.player_id,players01.first_name,employees.first_name
+        FROM players01
+        right join employees
+        on players01.player_id=employees.employee_id
+        ```
+- ### 7.4 `Full Outer Join`
+  - #### Returns all rows when there is a match in either the left or the right table.
+  - #### Rows without a match in one table will have NULLs for columns from the other table.
+  ![Inner joins](full-outer-join.png)
+  ```sql
+  --syntax
+  SELECT column_name(s)
+  FROM table1
+  FULL OUTER JOIN table2
+  ON table1.column_name = table2.column_name
+  WHERE condition;
+
+  --example
+  SELECT players01.player_id,players01.first_name as player_firstName,employees.first_name as employees_firstName
+  FROM players01
+  FULL OUTER JOIN employees
+  on players01.player_id=employees.employee_id
+  ```
