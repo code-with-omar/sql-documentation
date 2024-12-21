@@ -801,13 +801,21 @@
     ```
 
 - ### 7.2 `Left Join`
+
   - #### Returns all rows from the left table and the matched rows from the right table.
   - #### If there is no match, NULL values are returned for columns from the right table.
     ![Inner joins](left-join.png)
+
   ```sql
   --syntax
   SELECT column_name(s)
   FROM table1
   LEFT JOIN table2
   ON table1.column_name = table2.column_name;
+
+  --example
+  SELECT players01.player_id,players01.first_name,employees.first_name
+  FROM players01
+  left join employees
+  on players01.player_id=employees.employee_id
   ```
